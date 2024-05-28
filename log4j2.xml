@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="ERROR">
+  <Appenders>
+    <File name="LogToFile" fileName="logs/cassandra.log">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </File>
+  </Appenders>
+  <Loggers>
+    <!-- avoid duplicated logs with additivity=false -->
+    <Logger name="Cassandra_Cdata" level="debug" additivity="false">
+      <AppenderRef ref="LogToFile"/>
+    </Logger>
+    <Root level="DEBUG">
+      <AppenderRef ref="LogToFile" level="debug"/>
+    </Root>
+  </Loggers>
+</Configuration>
